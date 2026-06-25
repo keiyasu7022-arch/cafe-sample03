@@ -358,36 +358,16 @@
       align-items: center;
     }
 
-    /* CSS art — café interior suggestion */
     .story__visual {
       aspect-ratio: 4 / 5;
-      position: relative;
-      background:
-        radial-gradient(ellipse 70% 50% at 40% 55%, oklch(82% 0.08 42 / 0.65) 0%, transparent 55%),
-        linear-gradient(145deg, oklch(89% 0.04 78) 0%, oklch(81% 0.06 55) 55%, oklch(74% 0.07 38) 100%);
       overflow: hidden;
     }
 
-    /* Window light simulation */
-    .story__visual::before {
-      content: '';
-      position: absolute;
-      top: 12%;
-      left: 18%;
-      width: 55%;
-      height: 62%;
-      border: 1px solid oklch(70% 0.06 45 / 0.28);
-      background: linear-gradient(160deg, oklch(92% 0.04 80 / 0.25) 0%, transparent 60%);
-    }
-
-    .story__visual::after {
-      content: '';
-      position: absolute;
-      bottom: var(--space-6);
-      left: var(--space-6);
-      right: var(--space-6);
-      height: var(--rule-hairline);
-      background: oklch(65% 0.07 42 / 0.35);
+    .story__visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .story__text { padding-block: var(--space-8); }
@@ -486,31 +466,12 @@
     .menu__photo-art {
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      display: block;
       transition: transform var(--dur-slow) var(--ease-out);
     }
 
     .menu__card:hover .menu__photo-art { transform: scale(1.04); }
-
-    .menu__photo-art--latte {
-      background:
-        radial-gradient(ellipse 55% 65% at 50% 55%, oklch(80% 0.08 45 / 0.75) 0%, transparent 55%),
-        radial-gradient(circle 6px at 50% 52%, oklch(68% 0.06 38 / 0.6) 0%, transparent 6px),
-        linear-gradient(155deg, oklch(86% 0.06 72) 0%, oklch(79% 0.08 50) 50%, oklch(72% 0.07 38) 100%);
-    }
-
-    .menu__photo-art--tart {
-      background:
-        radial-gradient(ellipse 60% 55% at 48% 45%, oklch(88% 0.06 65 / 0.7) 0%, transparent 50%),
-        radial-gradient(ellipse 35% 35% at 52% 38%, oklch(78% 0.09 28 / 0.55) 0%, transparent 35%),
-        linear-gradient(155deg, oklch(91% 0.04 82) 0%, oklch(85% 0.06 68) 60%, oklch(80% 0.07 55) 100%);
-    }
-
-    .menu__photo-art--plate {
-      background:
-        radial-gradient(ellipse 50% 45% at 45% 50%, oklch(86% 0.05 110 / 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 40% 35% at 58% 44%, oklch(78% 0.06 80 / 0.4) 0%, transparent 40%),
-        linear-gradient(155deg, oklch(90% 0.04 88) 0%, oklch(84% 0.05 72) 50%, oklch(78% 0.06 60) 100%);
-    }
 
     .menu__name {
       font-family: var(--font-display);
@@ -598,43 +559,12 @@
     .galerie__tile-art {
       width: 100%;
       height: 100%;
+      object-fit: cover;
+      display: block;
       transition: transform var(--dur-slow) var(--ease-out);
     }
 
     .galerie__tile:hover .galerie__tile-art { transform: scale(1.05); }
-
-    .galerie__tile--a .galerie__tile-art {
-      background:
-        radial-gradient(ellipse 60% 55% at 55% 42%, oklch(83% 0.07 48 / 0.75) 0%, transparent 55%),
-        linear-gradient(155deg, oklch(88% 0.05 72) 0%, oklch(80% 0.07 50) 50%, oklch(74% 0.08 35) 100%);
-    }
-
-    .galerie__tile--b .galerie__tile-art {
-      background:
-        radial-gradient(ellipse 70% 60% at 42% 58%, oklch(90% 0.04 82 / 0.7) 0%, transparent 55%),
-        linear-gradient(135deg, oklch(93% 0.03 85) 0%, oklch(85% 0.05 68) 100%);
-    }
-
-    .galerie__tile--c .galerie__tile-art {
-      background:
-        radial-gradient(ellipse 65% 80% at 55% 30%, oklch(92% 0.035 88 / 0.8) 0%, transparent 55%),
-        linear-gradient(175deg, oklch(91% 0.03 84) 0%, oklch(83% 0.06 62) 100%);
-    }
-
-    .galerie__tile--d .galerie__tile-art {
-      background:
-        radial-gradient(circle 70% at 48% 52%, oklch(85% 0.06 55 / 0.85) 0%, oklch(78% 0.08 40) 100%);
-    }
-
-    .galerie__tile--e .galerie__tile-art {
-      background:
-        radial-gradient(ellipse 80% 80% at 32% 65%, oklch(89% 0.04 75 / 0.8) 0%, oklch(82% 0.07 55) 100%);
-    }
-
-    .galerie__tile--f .galerie__tile-art {
-      background:
-        radial-gradient(ellipse 70% 75% at 65% 40%, oklch(81% 0.07 35 / 0.72) 0%, oklch(87% 0.04 68) 100%);
-    }
 
     .galerie__caption {
       font-family: var(--font-body);
@@ -992,11 +922,14 @@
   <section class="story section-pad" aria-labelledby="story-heading">
     <div class="wrap">
       <div class="story__grid reveal">
-        <div
-          class="story__visual"
-          role="img"
-          aria-label="カフェの窓辺に差し込む自然光"
-        ></div>
+        <div class="story__visual">
+          <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&auto=format&fit=crop&q=80"
+            alt="自然光が差し込む落ち着いたカフェの内装"
+            loading="lazy"
+            width="800" height="1000"
+          >
+        </div>
         <div class="story__text">
           <span class="story__kicker">L'Histoire — 物語</span>
           <h2 class="story__heading" id="story-heading">素材の声を<br>聴くカフェ</h2>
@@ -1023,7 +956,13 @@
 
         <article class="menu__card reveal">
           <div class="menu__photo">
-            <div class="menu__photo-art menu__photo-art--latte" role="img" aria-label="シグネチャーラテのイメージ"></div>
+            <img
+              class="menu__photo-art"
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop&q=80"
+              alt="シグネチャーラテ — バニラとカルダモンのラテアート"
+              loading="lazy"
+              width="600" height="450"
+            >
           </div>
           <h3 class="menu__name">シグネチャーラテ</h3>
           <p class="menu__desc">バニラとカルダモンを合わせた、LUMIÈREの代名詞。ラテアートは毎日変わります。</p>
@@ -1032,7 +971,13 @@
 
         <article class="menu__card reveal" data-delay="1">
           <div class="menu__photo">
-            <div class="menu__photo-art menu__photo-art--tart" role="img" aria-label="旬のフルーツタルトのイメージ"></div>
+            <img
+              class="menu__photo-art"
+              src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop&q=80"
+              alt="旬のフルーツタルト"
+              loading="lazy"
+              width="600" height="450"
+            >
           </div>
           <h3 class="menu__name">旬のフルーツタルト</h3>
           <p class="menu__desc">旬のフルーツをたっぷりとのせた映えるタルト。毎週内容が変わります。</p>
@@ -1041,7 +986,13 @@
 
         <article class="menu__card reveal" data-delay="2">
           <div class="menu__photo">
-            <div class="menu__photo-art menu__photo-art--plate" role="img" aria-label="モーニングプレートのイメージ"></div>
+            <img
+              class="menu__photo-art"
+              src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&auto=format&fit=crop&q=80"
+              alt="モーニングプレート — スコーンと季節のスープ"
+              loading="lazy"
+              width="600" height="450"
+            >
           </div>
           <h3 class="menu__name">モーニングプレート</h3>
           <p class="menu__desc">自家製スコーンと季節のスープ、シーズンサラダの朝食プレート。</p>
@@ -1064,22 +1015,34 @@
       </div>
       <div class="galerie__bento reveal" role="list" aria-label="カフェのギャラリー">
         <div class="galerie__tile galerie__tile--a" role="listitem">
-          <div class="galerie__tile-art" role="img" aria-label="カフェ空間の雰囲気"></div>
+          <img class="galerie__tile-art"
+            src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&auto=format&fit=crop&q=80"
+            alt="自然光が差し込むカフェの空間" loading="lazy" width="1200" height="900">
         </div>
         <div class="galerie__tile galerie__tile--b" role="listitem">
-          <div class="galerie__tile-art" role="img" aria-label="ラテアート"></div>
+          <img class="galerie__tile-art"
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop&q=80"
+            alt="コーヒーカップのクローズアップ" loading="lazy" width="600" height="400">
         </div>
         <div class="galerie__tile galerie__tile--c" role="listitem">
-          <div class="galerie__tile-art" role="img" aria-label="スイーツのプレート"></div>
+          <img class="galerie__tile-art"
+            src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&auto=format&fit=crop&q=80"
+            alt="明るい窓際のカフェ席" loading="lazy" width="600" height="400">
         </div>
         <div class="galerie__tile galerie__tile--d" role="listitem">
-          <div class="galerie__tile-art" role="img" aria-label="コーヒー豆のクローズアップ"></div>
+          <img class="galerie__tile-art"
+            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&auto=format&fit=crop&q=80"
+            alt="コーヒー豆のクローズアップ" loading="lazy" width="400" height="400">
         </div>
         <div class="galerie__tile galerie__tile--e" role="listitem">
-          <div class="galerie__tile-art" role="img" aria-label="窓際の席"></div>
+          <img class="galerie__tile-art"
+            src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=400&auto=format&fit=crop&q=80"
+            alt="カフェの窓際" loading="lazy" width="400" height="400">
         </div>
         <div class="galerie__tile galerie__tile--f" role="listitem">
-          <div class="galerie__tile-art" role="img" aria-label="テーブルの手元"></div>
+          <img class="galerie__tile-art"
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&auto=format&fit=crop&q=80"
+            alt="コーヒーカップとノート" loading="lazy" width="400" height="400">
         </div>
       </div>
       <p class="galerie__caption">#cafelumiere — @cafe_lumiere</p>
