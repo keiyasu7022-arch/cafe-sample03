@@ -231,38 +231,24 @@
     .hero__art {
       position: absolute;
       inset: 0;
-      background:
-        /* Warm light pool — top right */
-        radial-gradient(ellipse 75% 65% at 75% 30%, oklch(88% 0.07 75 / 0.72) 0%, transparent 60%),
-        /* Rose warmth — lower left */
-        radial-gradient(ellipse 55% 70% at 20% 80%, oklch(82% 0.08 30 / 0.5) 0%, transparent 55%),
-        /* Ambient base */
-        radial-gradient(ellipse 120% 100% at 55% 50%, oklch(91% 0.04 80) 0%, oklch(83% 0.055 62) 100%);
+      overflow: hidden;
     }
 
-    /* Bokeh dots — light through a window */
-    .hero__art::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle 18px at 68% 22%, oklch(94% 0.06 80 / 0.45) 0%, transparent 18px),
-        radial-gradient(circle 10px at 55% 38%, oklch(92% 0.05 75 / 0.3) 0%, transparent 10px),
-        radial-gradient(circle 24px at 80% 55%, oklch(88% 0.07 70 / 0.35) 0%, transparent 24px),
-        radial-gradient(circle 8px  at 48% 18%, oklch(90% 0.06 78 / 0.25) 0%, transparent 8px),
-        radial-gradient(circle 14px at 72% 70%, oklch(85% 0.08 60 / 0.3) 0%, transparent 14px),
-        radial-gradient(circle 6px  at 62% 45%, oklch(92% 0.05 82 / 0.4) 0%, transparent 6px);
+    .hero__art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    /* Vignette bottom — paper fade */
+    /* Vignette — テキストを読みやすくする */
     .hero__art::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 55%;
-      background: linear-gradient(to top, oklch(97% 0.018 80) 0%, transparent 100%);
+      inset: 0;
+      background:
+        linear-gradient(to top, oklch(97% 0.018 80) 0%, transparent 50%),
+        linear-gradient(to bottom, oklch(10% 0.01 50 / 0.25) 0%, transparent 40%);
     }
 
     .hero__content {
@@ -541,32 +527,22 @@
       min-width: 0;
     }
 
-    /* Asymmetric bento */
     .galerie__bento {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: var(--space-4);
     }
 
     .galerie__tile {
       overflow: hidden;
-      position: relative;
-      display: flex;
+      aspect-ratio: 4/3;
     }
-
-    .galerie__tile--a { grid-column: span 7; aspect-ratio: 4/3; }
-    .galerie__tile--b { grid-column: span 5; aspect-ratio: 3/2; }
-    .galerie__tile--c { grid-column: span 5; aspect-ratio: 3/2; }
-    .galerie__tile--d { grid-column: span 4; aspect-ratio: 1; }
-    .galerie__tile--e { grid-column: span 4; aspect-ratio: 1; }
-    .galerie__tile--f { grid-column: span 4; aspect-ratio: 1; }
 
     .galerie__tile-art {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      flex-shrink: 0;
       transition: transform var(--dur-slow) var(--ease-out);
     }
 
@@ -847,15 +823,8 @@
       }
 
       .galerie__bento {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
-
-      .galerie__tile--a { grid-column: span 6; }
-      .galerie__tile--b { grid-column: span 3; }
-      .galerie__tile--c { grid-column: span 3; }
-      .galerie__tile--d { grid-column: span 2; }
-      .galerie__tile--e { grid-column: span 2; }
-      .galerie__tile--f { grid-column: span 2; }
 
       .access__grid {
         grid-template-columns: 1fr;
@@ -875,15 +844,8 @@
       .menu__grid { grid-template-columns: 1fr; }
 
       .galerie__bento {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
-
-      .galerie__tile--a { grid-column: span 2; }
-      .galerie__tile--b { grid-column: span 1; }
-      .galerie__tile--c { grid-column: span 1; }
-      .galerie__tile--d { grid-column: span 1; }
-      .galerie__tile--e { grid-column: span 1; }
-      .galerie__tile--f { grid-column: span 2; }
 
       .menu__header {
         flex-direction: column;
@@ -912,10 +874,12 @@
 
   <!-- HERO — Marquee Hero, CSS art background -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__art" aria-hidden="true"></div>
+    <div class="hero__art" aria-hidden="true">
+      <img src="images/hero.jpg" alt="" width="1600" height="1067">
+    </div>
     <div class="hero__content">
       <p class="hero__eyebrow" aria-hidden="true">Paris, 2026. — 自然光の中で。</p>
-      <h1 class="hero__title" id="hero-title">表参道のナチュラルカフェ</h1>
+      <h1 class="hero__title" id="hero-title">表参道の<br><span style="white-space:nowrap">ナチュラルカフェ</span></h1>
       <p class="hero__lead">ナチュラル素材と自然光に包まれた、<br>パリ風モダンカフェ。</p>
     </div>
     <div class="hero__scroll" aria-hidden="true">
