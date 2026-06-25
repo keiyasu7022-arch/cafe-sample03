@@ -545,13 +545,13 @@
     .galerie__bento {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: minmax(0, 1fr);
       gap: var(--space-4);
     }
 
     .galerie__tile {
       overflow: hidden;
       position: relative;
+      display: flex;
     }
 
     .galerie__tile--a { grid-column: span 7; aspect-ratio: 4/3; }
@@ -562,12 +562,11 @@
     .galerie__tile--f { grid-column: span 4; aspect-ratio: 1; }
 
     .galerie__tile-art {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      flex-shrink: 0;
       transition: transform var(--dur-slow) var(--ease-out);
     }
 
@@ -916,7 +915,7 @@
     <div class="hero__art" aria-hidden="true"></div>
     <div class="hero__content">
       <p class="hero__eyebrow" aria-hidden="true">Paris, 2026. — 自然光の中で。</p>
-      <h1 class="hero__title" id="hero-title">表参道の<br>ナチュラルカフェ</h1>
+      <h1 class="hero__title" id="hero-title">表参道のナチュラルカフェ</h1>
       <p class="hero__lead">ナチュラル素材と自然光に包まれた、<br>パリ風モダンカフェ。</p>
     </div>
     <div class="hero__scroll" aria-hidden="true">
